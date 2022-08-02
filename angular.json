@@ -109,6 +109,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "leaderboard-of-nonsense:build:production",
+            "firebaseProject": "leaderboard-of-nonsense-1dd27",
+            "firebaseHostingSite": "leaderboard-of-nonsense-1dd27"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "leaderboard-of-nonsense-1dd27": {
+      "hosting": {
+        "leaderboard-of-nonsense": [
+          "leaderboard-of-nonsense-1dd27"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "leaderboard-of-nonsense-1dd27"
+  }
+}
