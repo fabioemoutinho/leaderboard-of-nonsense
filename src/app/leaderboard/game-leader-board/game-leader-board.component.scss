@@ -1,0 +1,14 @@
+:host{
+    padding: 2rem;
+
+    ol{
+
+    li > img{
+        width: 50px;
+    }
+    }
+    ol > li:first-child{
+        background-color: red;
+    }
+
+}
