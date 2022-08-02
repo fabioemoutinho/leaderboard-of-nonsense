@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { LeaderboardRoutingModule } from './leaderboard-routing.module';
 import { LeaderboardComponent } from './leaderboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -15,7 +16,8 @@ import { GameLeaderBoardComponent } from './game-leader-board/game-leader-board.
   ],
   imports: [
     CommonModule,
-    LeaderboardRoutingModule
+    LeaderboardRoutingModule,
+    AngularFirestoreModule
   ]
 })
 export class LeaderboardModule { }

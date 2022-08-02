@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { LeaderBoard } from '../core/models/leader-board.interface';
 import { Score } from '../core/models/score.interface';
-
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
+import { Firestore, collection, collectionData,  } from '@angular/fire/firestore';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
@@ -9,29 +11,7 @@ import { Score } from '../core/models/score.interface';
 })
 export class LeaderboardComponent {
 
-  leaderboards: LeaderBoard[] = [
-    {
-      id: 'kdklsdkldf',
-      game_id: 'dfdf',
-      name: 'Good leaderboard',
-      description: 'Good description ',
-      metrics_ids: ['', ''],
-    },
-    {
-      id: 'kdklsdkldf',
-      game_id: 'dfdf',
-      name: 'Good leaderboard',
-      description: 'Good description ',
-      metrics_ids: ['', ''],
-    },
-    {
-      id: 'kdklsdkldf',
-      game_id: 'dfdf',
-      name: 'Good leaderboard',
-      description: 'Good description ',
-      metrics_ids: ['', ''],
-    }
-  ]
+  leaderboards$!:Observable<LeaderBoard[]> 
 
   leaderboard: LeaderBoard = {
     id: 'some-id-here',
@@ -57,5 +37,13 @@ export class LeaderboardComponent {
       score: 300,
     },
   ]
+
+  constructor(
+    private firestore:Firestore
+  ){
+    const leaderboardCollection = collection(firestore, 'leaderboard');
+    this.leaderboards$ = collectionData(leaderboardCollection, { idField: 'id' })
+    .pipe(map((leaderboards) => leaderboards as LeaderBoard[]));
+  }
 
 }
