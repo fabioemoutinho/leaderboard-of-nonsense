@@ -1,6 +1,8 @@
-<!-- <ng-container *ngIf="auth.user | async as user">
-  {{ user.photoURL }}
-</ng-container> -->
-<button (click)="onLogin()">
+<ng-container *ngIf="{ user: user$ | async } as data">
+  <button *ngIf="!data.user" (click)="onLogin()">
     Log me in please!
-</button>
+  </button>
+  <ng-container *ngIf="data.user">
+    {{ data.user.user.displayName }}
+  </ng-container>
+</ng-container>

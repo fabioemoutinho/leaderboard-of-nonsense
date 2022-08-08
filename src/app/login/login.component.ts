@@ -1,7 +1,6 @@
 import { Component, } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
-import { from } from 'rxjs';
+import { LoginService } from './login.service';
 
 
 @Component({
@@ -12,16 +11,15 @@ import { from } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  readonly user$ = this.loginService.user$;
 
   constructor(
-    protected auth: Auth
+    protected loginService: LoginService
   ){
 
   }
 
   onLogin(){
-    const googleProvider = new GoogleAuthProvider()
-   from(signInWithPopup(this.auth,googleProvider))
-   .subscribe(console.log)
+    this.loginService.onLogin();
   }
 }
