@@ -8,7 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { GameLeaderBoardComponent } from './game-leader-board/game-leader-board.component';
 import { LoginComponent } from '../login/login.component';
 import { UserComponent } from '../user/user.component';
-
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { UserComponent } from '../user/user.component';
     LeaderboardRoutingModule,
     AngularFirestoreModule,
     LoginComponent,
-    UserComponent
-  ]
+    UserComponent,
+    TopBarComponent
+    ]
 })
 export class LeaderboardModule { }

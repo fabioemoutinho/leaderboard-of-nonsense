@@ -1,7 +1,9 @@
-<app-sidebar *ngIf=" leaderboards$ | async as leaderboards" [leaderboards]="leaderboards"></app-sidebar>
-<main>
-    <app-login></app-login>
-    <app-user></app-user>
-    <app-game-leader-board [scores]="scores" [leaderboard]="leaderboard"></app-game-leader-board>
-
-</main>
+<app-top-bar></app-top-bar>
+<div class="container">
+    <app-sidebar *ngIf=" leaderboards$ | async as leaderboards" [leaderboards]="leaderboards"></app-sidebar>
+    <main>
+        <app-user></app-user>
+        <app-game-leader-board [scores]="scores" [leaderboard]="leaderboard"></app-game-leader-board>
+        
+    </main>
+</div>

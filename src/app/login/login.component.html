@@ -1,7 +1,9 @@
 <ng-container *ngIf="{ user: user$ | async } as data">
-  <button *ngIf="!data.user" (click)="onLogin()">
-    Log me in please!
-  </button>
+ 
+  <button *ngIf="!data.user" (click)="onLogin()" class="btn btn-sm mr-2 mb-2 btn-primary" type="button">
+    <img width="15px" src="https://emoji.slack-edge.com/T02B04353/jennifercool/e4545ecd08a8156e.png" alt="Jennifer is cool">
+    <span class="btn-text"> Log in</span>
+</button>
   <ng-container *ngIf="data.user">
     {{ data.user.user.displayName }}
   </ng-container>
