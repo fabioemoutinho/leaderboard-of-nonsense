@@ -1,10 +1,10 @@
 <ng-container *ngIf="{ user: user$ | async } as data">
  
-  <button *ngIf="!data.user" (click)="onLogin()" class="btn btn-sm mr-2 mb-2 btn-primary" type="button">
+  <button *ngIf="!data.user" (click)="onLogin()" class="btn btn-sm mr-2 btn-primary" type="button">
     <img width="15px" src="https://emoji.slack-edge.com/T02B04353/jennifercool/e4545ecd08a8156e.png" alt="Jennifer is cool">
     <span class="btn-text"> Log in</span>
 </button>
-  <ng-container *ngIf="data.user">
-    {{ data.user.user.displayName }}
-  </ng-container>
+  <button *ngIf="data.user" class="user-avatar rounded-circle p-0">
+    <img [src]="data.user.photoURL" alt="User avatar" width="36px" referrerpolicy=“no-referrer”/>
+  </button>
 </ng-container>
