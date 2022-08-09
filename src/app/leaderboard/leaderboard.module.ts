@@ -6,6 +6,8 @@ import { LeaderboardRoutingModule } from './leaderboard-routing.module';
 import { LeaderboardComponent } from './leaderboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GameLeaderBoardComponent } from './game-leader-board/game-leader-board.component';
+import { LoginComponent } from '../login/login.component';
+import { UserComponent } from '../user/user.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { GameLeaderBoardComponent } from './game-leader-board/game-leader-board.
   imports: [
     CommonModule,
     LeaderboardRoutingModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    LoginComponent,
+    UserComponent
   ]
 })
 export class LeaderboardModule { }

@@ -1,13 +1,7 @@
 <app-sidebar *ngIf=" leaderboards$ | async as leaderboards" [leaderboards]="leaderboards"></app-sidebar>
 <main>
+    <app-login></app-login>
+    <app-user></app-user>
     <app-game-leader-board [scores]="scores" [leaderboard]="leaderboard"></app-game-leader-board>
 
-    <h1>I am an H1</h1>
-    <h2>I am an h2</h2>
-    <h3>I am an h3</h3>
-    <h4>I am an h4</h4>
-    
-    <button class="btn mr-2 btn-lg mb-2 btn-primary" type="button">
-        <span class="btn-text">Primary</span>
-    </button>
 </main>
