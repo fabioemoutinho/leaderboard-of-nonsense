@@ -4,7 +4,7 @@
     <img width="15px" src="https://emoji.slack-edge.com/T02B04353/jennifercool/e4545ecd08a8156e.png" alt="Jennifer is cool">
     <span class="btn-text"> Log in</span>
 </button>
-  <button *ngIf="data.user" class="user-avatar rounded-circle p-0">
+  <a *ngIf="data.user" class="user-avatar rounded-circle p-0" [routerLink]="'/leader-board/update-profile'">
     <img [src]="data.user.photoURL" alt="User avatar" width="36px" referrerpolicy="no-referrer"/>
-  </button>
+  </a>
 </ng-container>

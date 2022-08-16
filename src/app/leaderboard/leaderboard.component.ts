@@ -3,7 +3,7 @@ import { LeaderBoard } from '../core/models/leader-board.interface';
 import { Score } from '../core/models/score.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { Firestore, collection, collectionData,  } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',

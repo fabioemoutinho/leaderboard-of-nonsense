@@ -1,7 +1,10 @@
-<form [formGroup]="fg" (ngSubmit)="onUpdate()">
+<form *ngIf="user$ | async as user" [formGroup]="fg" (ngSubmit)="onUpdate(user.id)">
     <input  formControlName="description"  type="text" placeholder="Description"  >
     <input  formControlName="displayName" type="text" placeholder="Display name"  >
     <button >
         Update Me please!
     </button>
 </form>
+<pre>
+    {{user$ | async | json}}
+</pre>
