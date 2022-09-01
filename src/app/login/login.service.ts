@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithPopup, authState, browserSessionPersistence } from '@angular/fire/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  authState,
+  browserSessionPersistence,
+} from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   readonly user$ = authState(this.auth);
