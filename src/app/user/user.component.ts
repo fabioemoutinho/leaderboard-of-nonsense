@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { from } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { UserService } from './user.service';
 type UpdateProfile = {
   displayName: FormControl<string>;
@@ -19,15 +21,24 @@ export class UserComponent {
     description: new FormControl('', { nonNullable: true }),
     displayName: new FormControl('', { nonNullable: true }),
   });
-  readonly user$ = this.userService.getUser();
+  readonly user$ = this.userService.getUser().pipe(
+    tap((user) => {
+      this.fg.controls.description.setValue(user.description);
+      this.fg.controls.displayName.setValue(user.displayName);
+    })
+  );
 
   constructor(private userService: UserService) {}
 
   onUpdate(id: string): void {
-    this.userService.updateUser({
-      id,
-      description: this.fg.controls.description.value,
-      displayName: this.fg.controls.displayName.value,
-    });
+    from(
+      this.userService.updateUser({
+        id,
+        description: this.fg.controls.description.value,
+        displayName: this.fg.controls.displayName.value,
+      })
+    )
+      .pipe(tap(() => console.log('success')))
+      .subscribe();
   }
 }

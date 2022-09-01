@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { User as FirebaseUser } from '@angular/fire/auth';
 import {
   collection,
-  Firestore,
-  docData,
   doc,
+  docData,
   DocumentReference,
-  addDoc,
+  Firestore,
+  setDoc,
   updateDoc,
 } from '@angular/fire/firestore';
+import { mergeMap, take } from 'rxjs';
+
 import { LoginService } from '../login/login.service';
-import { take, mergeMap } from 'rxjs';
 
 export interface User {
   id: string;
@@ -58,7 +59,6 @@ export class UserService {
   }
 
   addUser(id: string) {
-    console.log('addUser', id);
-    addDoc(this.userCollection, { idField: id });
+    setDoc(doc(this.userCollection, id), { idField: id });
   }
 }
